@@ -1,15 +1,26 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Kid kid = new Kid("Anna",12,false,"Rachel","Noah");
+        Kid kid1 = new Kid("Rita",10,false,"Rachel","Noah");
+        Kid kid2 = new Kid("Vlad",8,false,"Rachel","Noah");
+        Parent father = new Parent("Noah",37, true,"Gera","Ely");
+        Parent mother = new Parent("Rachel",32,false,"Lida","Cory");
+        GrandParent grandpa = new GrandParent("Ely",58, true);
+        GrandParent grandma = new GrandParent("Gera",54, false);
+        GrandParent grandpa1 = new GrandParent("Cory",57, true);
+        GrandParent grandma1 = new GrandParent("Lida",55, false);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Human [] family = new Human[5];
+
+        family[0] = kid;
+        family[1] = father;
+        family[2] = mother;
+        family[3] = grandpa;
+        family[4] = grandma;
+
+        for(int i=0; i < family.length; i++){
+            HumanHelper.printHuman(family[i]);
         }
+
     }
 }
