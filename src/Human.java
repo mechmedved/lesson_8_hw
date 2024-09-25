@@ -2,22 +2,22 @@ public class Human {
 
     private String name;
     private int age;
-    private boolean sex;
-    private String motherName;
-    private String fatherName;
+    private boolean isMale;
+    private Human mother;
+    private Human father;
 
-    public Human(String name, int age, boolean sex) {
+    public Human(String name, int age, boolean isMale) {
         this.name = name;
         this.age = age;
-        this.sex = sex;
+        this.isMale = isMale;
     }
 
-    public Human(String name, int age, boolean sex, String motherName, String fatherName) {
+    public Human(String name, int age, boolean isMale, Human father, Human mother) {
         this.name = name;
         this.age = age;
-        this.sex = sex;
-        this.motherName = motherName;
-        this.fatherName = fatherName;
+        this.isMale = isMale;
+        this.mother = mother;
+        this.father = father;
     }
 
     public String getName() {
@@ -28,17 +28,23 @@ public class Human {
         return age;
     }
 
-    public String isSex() {
-        String name = "male";
-        if(!sex) name = "female";
+    public String isMale() {
+        String name = "Male";
+        if(!isMale) name = "Female";
         return name;
     }
 
-    public String getMotherName() {
-        return motherName;
+    public String getMother() {
+        if (mother != null) {
+            return mother.name;
+        }
+        return null;
     }
 
-    public String getFatherName() {
-        return fatherName;
+    public String getFather() {
+        if(father != null) {
+            return father.name;
+        }
+        return null;
     }
 }

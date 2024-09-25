@@ -1,26 +1,35 @@
 public class Main {
     public static void main(String[] args) {
-        Kid kid = new Kid("Anna",12,false,"Rachel","Noah");
-        Kid kid1 = new Kid("Rita",10,false,"Rachel","Noah");
-        Kid kid2 = new Kid("Vlad",8,false,"Rachel","Noah");
-        Parent father = new Parent("Noah",37, true,"Gera","Ely");
-        Parent mother = new Parent("Rachel",32,false,"Lida","Cory");
-        GrandParent grandpa = new GrandParent("Ely",58, true);
-        GrandParent grandma = new GrandParent("Gera",54, false);
-        GrandParent grandpa1 = new GrandParent("Cory",57, true);
-        GrandParent grandma1 = new GrandParent("Lida",55, false);
+        Human grandpa = new Human("Ely",58, true);
+        Human grandma = new Human("Gera",54, false);
+        Human grandpa1 = new Human("Cory",57, true);
+        Human grandma1 = new Human("Lida",55, false);
+        Human father = new Human("Noah",37, true, grandma, grandpa);
+        Human mother = new Human("Rachel",32,false, grandma1, grandpa1);
+        Human father1 = new Human("Oliver",35,true, grandma, grandpa);
+        Human mother1 = new Human("Eho",28,false, grandma1, grandpa1);
+        Human kid = new Human("Anna",12,false, mother, father);
+        Human kid1 = new Human("Rita",10,false, mother, father);
+        Human kid2 = new Human("Vlad",8,false, mother1, father1);
 
-        Human [] family = new Human[5];
+        Human [] family = new Human[7];
 
         family[0] = kid;
-        family[1] = father;
-        family[2] = mother;
-        family[3] = grandpa;
-        family[4] = grandma;
+        family[1] = kid1;
+        family[2] = kid2;
+        family[3] = father;
+        family[4] = mother;
+        family[5] = grandpa;
+        family[6] = grandma;
 
-        for(int i=0; i < family.length; i++){
-            HumanHelper.printHuman(family[i]);
+        for (Human human : family) {
+            System.out.println("Name: " + human.getName());
+            System.out.println("Age: " + human.getAge());
+            System.out.println("Gender: " + human.isMale());
+            String fatherName = human.getFather();
+            if(fatherName != null) System.out.println("Father: " + human.getFather());
+            String motherName = human.getMother();
+            if(motherName != null) System.out.println("Mother: " + human.getMother());
         }
-
     }
 }
