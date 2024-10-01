@@ -34,17 +34,12 @@ public class Human {
         return name;
     }
 
-    public String getMother() {
-        if (mother != null) {
-            return mother.name;
+    @Override
+    public String toString() {
+        if(mother != null && father != null) {
+            return "Name: " + name + ", " + "Age: " + age + ", " + "Gender: " + isMale() + ", " +
+                    "Mother: " + mother.name + ", " + "Father: " + father.name;
         }
-        return null;
-    }
-
-    public String getFather() {
-        if(father != null) {
-            return father.name;
-        }
-        return null;
+        return "Name: " + name + ", " + "Age: " + age + ", " + "Gender: " + isMale();
     }
 }

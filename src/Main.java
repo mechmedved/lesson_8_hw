@@ -23,13 +23,7 @@ public class Main {
         family[6] = grandma;
 
         for (Human human : family) {
-            System.out.println("Name: " + human.getName());
-            System.out.println("Age: " + human.getAge());
-            System.out.println("Gender: " + human.isMale());
-            String fatherName = human.getFather();
-            if(fatherName != null) System.out.println("Father: " + human.getFather());
-            String motherName = human.getMother();
-            if(motherName != null) System.out.println("Mother: " + human.getMother());
+            System.out.println(human.toString());
         }
     }
 }
