@@ -36,10 +36,9 @@ public class Human {
 
     @Override
     public String toString() {
-        if(mother != null && father != null) {
-            return "Name: " + name + ", " + "Age: " + age + ", " + "Gender: " + isMale() + ", " +
-                    "Mother: " + mother.name + ", " + "Father: " + father.name;
-        }
-        return "Name: " + name + ", " + "Age: " + age + ", " + "Gender: " + isMale();
+        String motherName = mother == null ? "unknown" : mother.getName();
+        String fatherName = father == null ? "unknown" : father.getName();
+
+        return String.format("Name - %s, Age - %d, Gender - %s, motherName - %s, fatherName - %s", name, age, isMale(), motherName, fatherName);
     }
 }
